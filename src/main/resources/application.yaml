@@ -1,0 +1,11 @@
+spring.application.name: jsonrpc-demo
+
+logging:
+  level:
+    org.springframework.web: DEBUG
+    org.a2aproject.sdk: DEBUG
+
+server:
+  servlet:
+    context-parameters:
+      enableLoggingRequestDetails: true

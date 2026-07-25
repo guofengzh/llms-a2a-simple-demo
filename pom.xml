@@ -54,11 +54,23 @@
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-core</artifactId>
         </dependency>
+
         <dependency>
             <groupId>org.a2aproject.sdk</groupId>
-            <artifactId>a2a-java-sdk-reference-jsonrpc</artifactId>
+            <artifactId>a2a-java-sdk-transport-jsonrpc</artifactId>
             <version>${org.a2aproject.sdk.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.a2aproject.sdk</groupId>
+            <artifactId>a2a-java-sdk-server-common</artifactId>
+            <version>${org.a2aproject.sdk.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.a2aproject.sdk</groupId>
+            <artifactId>a2a-java-sdk-jsonrpc-common</artifactId>
+            <version>${org.a2aproject.sdk.version}</version>
+        </dependency>
+
         <dependency>
             <groupId>org.mapstruct</groupId>
             <artifactId>mapstruct</artifactId>

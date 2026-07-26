@@ -1,6 +1,9 @@
 
 Test Input
 
+Healder: "A2A-Version: 1.0".
+
+Body: 
 ```json
 {
   "jsonrpc": "2.0",

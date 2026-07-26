@@ -21,6 +21,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import java.util.concurrent.Executor;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 @Configuration
 public class ServerConfig {
@@ -63,16 +65,21 @@ public class ServerConfig {
 	}
 
 	@Bean
+	public MainEventBusProcessor mainEventBusProcessor(MainEventBus mainEventBus,TaskStore taskStore,
+	                                                   PushNotificationSender pushSender,
+	                                                   QueueManager queueManager) {
+		return new MainEventBusProcessor(mainEventBus, taskStore, pushSender, queueManager);
+	}
+
+
+	@Bean
 	public RequestHandler requestHandler(AgentExecutor agentExecutor, TaskStore taskStore, QueueManager queueManager,
 	                                     PushNotificationConfigStore pushConfigStore,
-										 MainEventBus mainEventBus,
-										 PushNotificationSender pushSender,
+	                                     MainEventBusProcessor mainEventBusProcessor,
 	                                     @Qualifier("a2aInternal") Executor executor) {
-
-		return DefaultRequestHandler.create(agentExecutor, taskStore, queueManager, pushConfigStore,
-				new MainEventBusProcessor(mainEventBus, taskStore, pushSender, queueManager),
-				executor,
-				executor);
+		return new DefaultRequestHandler(agentExecutor, taskStore, queueManager,
+				pushConfigStore, mainEventBusProcessor,
+				executor, executor);
 	}
 
 	@Bean

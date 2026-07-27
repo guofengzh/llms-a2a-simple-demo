@@ -1,7 +1,14 @@
+## Introduction
 
-Test Input
+This project was used for the discussion of [#995](https://github.com/a2aproject/a2a-java/issues/995). The issue mentioned has been resolved. The completed project can be found [here](https://github.com/guofengzh/a2a-sdk-jsonrpc-spring).
 
-Healder: "A2A-Version: 1.0".
+## Test
+
+Input
+
+```POST http://localhost:8080```
+
+```Healder: "A2A-Version: 1.0"```
 
 Body: 
 ```json
